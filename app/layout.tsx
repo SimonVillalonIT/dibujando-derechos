@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 
 import "./globals.css";
 
-import Header from "./components/header/header";
+import { poppins } from "@/lib/fonts";
 
-const poppins = Poppins({
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-    style: ["normal", "italic"],
-    subsets: ["latin"],
-    variable: "--poppins",
-});
+import Header from "./components/header";
 
 export const metadata: Metadata = {
     title: "Dibujando Derechos",
@@ -23,8 +17,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={`${poppins.variable} bg-background antialiased`}>
+        <html className="h-full w-full" lang="en">
+            <body
+                className={`${poppins.className} from-primary relative w-full bg-gradient-to-b from-0% to-background to-30% bg-no-repeat antialiased`}
+            >
                 <Header />
                 {children}
             </body>

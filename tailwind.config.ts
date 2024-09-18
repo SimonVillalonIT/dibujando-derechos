@@ -12,6 +12,7 @@ const config: Config = {
             colors: {
                 background: "#F8F8F8",
                 foreground: "#000000",
+                primary: "#A3A2A2"
             },
             fontFamily: { sans: ["var(--poppins)", ...fontFamily.sans] },
         },
