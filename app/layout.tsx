@@ -19,7 +19,7 @@ export default function RootLayout({
     return (
         <html className="h-full w-full" lang="en">
             <body
-                className={`${poppins.className} from-primary relative w-full bg-gradient-to-b from-0% to-background to-30% bg-no-repeat antialiased`}
+                className={`${poppins.className} relative w-full scroll-smooth bg-background antialiased`}
             >
                 <Header />
                 {children}

@@ -11,8 +11,11 @@ const config: Config = {
         extend: {
             colors: {
                 background: "#F8F8F8",
-                foreground: "#000000",
-                primary: "#A3A2A2"
+                foreground: "#262626",
+                primary: "#595959",
+                secondary: "#01A9E0",
+                black: "#0D0D0D",
+                light: "#8C8C8C"
             },
             fontFamily: { sans: ["var(--poppins)", ...fontFamily.sans] },
         },
