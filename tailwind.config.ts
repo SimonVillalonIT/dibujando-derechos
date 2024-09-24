@@ -18,6 +18,9 @@ const config: Config = {
                 light: "#8C8C8C"
             },
             fontFamily: { sans: ["var(--poppins)", ...fontFamily.sans] },
+            dropShadow: {
+        'red': '0 35px 35px #D6D6D6',
+      }
         },
     },
     plugins: [],

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
@@ -29,11 +30,18 @@ function Header() {
         <header
             className={cn(
                 "absolute top-0 z-20 grid min-h-24 w-full grid-cols-7 transition-all delay-200 duration-500",
-                active ? "" : "bg-primary/40 backdrop-blur-md",
+                active ? "" : "bg-primary/60",
             )}
         >
             <div className="col-span-2 flex items-center justify-between pl-12">
-                <Image src="/Logo.png" alt="Logo Gobierno de Cordoba" width={200} height={100} />
+                <Link href={"/"}>
+                    <Image
+                        src="/Logo.png"
+                        alt="Logo Gobierno de Cordoba"
+                        width={200}
+                        height={100}
+                    />
+                </Link>
             </div>
             <nav className="col-span-3 flex list-none items-center">
                 <Item
@@ -49,7 +57,7 @@ function Header() {
             <div className="col-span-2 flex items-center justify-end pr-12">
                 <button
                     className={cn(
-                        "hover:text-secondary hover:border-secondary cursor-pointer rounded-3xl border border-black px-4 py-1 text-xl duration-100 hover:scale-110 hover:font-bold",
+                        "cursor-pointer rounded-3xl border border-black px-4 py-1 text-xl duration-100 hover:scale-110 hover:border-secondary hover:font-bold hover:text-secondary",
                     )}
                 >
                     Instagram
@@ -57,8 +65,8 @@ function Header() {
             </div>
             <div
                 className={cn(
-                    "absolute -top-80 z-10 flex w-full flex-wrap gap-8 px-16 py-4 transition-all duration-500",
-                    active ? "" : "translate-y-[26rem] bg-primary/40 backdrop-blur-3xl",
+                    "absolute -top-80 z-10 flex w-full flex-wrap gap-8 bg-primary/60 px-16 py-4 backdrop-blur-sm transition-all duration-500",
+                    active ? "" : "translate-y-[26rem]",
                 )}
             >
                 {schools.map((school, i) => (
