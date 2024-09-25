@@ -5,7 +5,7 @@ import Unknown from "./components/unknown";
 
 export default function Home() {
     return (
-        <main className="h-full w-full from-transparent to-background to-30%">
+        <main className="h-full w-full">
             <Hero />
             <SchoolsMap />
             <Pictures />

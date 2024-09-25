@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 
 import SectionContainer from "@/app/components/section-container";
@@ -111,12 +112,19 @@ function SchooldId() {
     ];
 
     return (
-        <SectionContainer classname="from-light bg-gradient-to-b from-0% to-background to-10% bg-no-repeat pt-24">
+        <SectionContainer>
             <h1 className="text-6xl">{id}</h1>
             <div className="grid-gallery">
                 {imageUrls.map((img, i) => (
                     <a className="grid-gallery__item" key={i} href="#">
-                        <img className="grid-gallery__image" key={i} src={img} />
+                        <Image
+                            width={500}
+                            height={500}
+                            className="grid-gallery__image"
+                            key={i}
+                            src={img}
+                            alt="Dibujo"
+                        />
                     </a>
                 ))}
             </div>
