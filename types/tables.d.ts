@@ -1,0 +1,1 @@
+type School = Database["public"]["Tables"]["schools"]["Row"]

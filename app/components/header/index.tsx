@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React from "react";
 import Image from "next/image";
@@ -7,29 +7,18 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import Item from "./item";
-import HeaderLink from "./link";
+import Options from "./options";
 
-function Header() {
+interface HeaderInterface {
+    schools:School[] 
+}
+
+function Header({schools}:HeaderInterface) {
     const [active, setActive] = React.useState(true);
-
-    const handleClick = () => {
+        const handleClick = () => {
         setActive(prev => !prev);
     };
 
-    const schools = [
-        { name: "Escuela Primaria Saavedra", link: "/schools/1" },
-        { name: "Instituto San Juan Bautista", link: "/schools/2" },
-        { name: "Colegio Luna Nueva", link: "/schools/3" },
-        { name: "Escuela Secundaria Estrella del Norte", link: "/schools/4" },
-        { name: "Centro Educativo Norteamérica", link: "/schools/5" },
-        { name: "Escuela Técnica del Sur", link: "/schools/6" },
-        { name: "Instituto Educacional Este-Oeste", link: "/schools/7" },
-        { name: "Escuela de Artes Ríos de Luz", link: "/schools/8" },
-        { name: "Colegio Montaña Verde", link: "/schools/9" },
-        { name: "Escuela del Valle Encantado", link: "/schools/10" },
-        { name: "Jardín Infantil Creciendo Juntos", link: "/schools/11" },
-        { name: "Horizonte Académico Internacional", link: "/schools/12" },
-    ];
     return (
         <header
             className={cn(
@@ -61,16 +50,7 @@ function Header() {
                     Instagram
                 </button>
             </div>
-            <div
-                className={cn(
-                    "absolute -top-80 z-10 flex w-full flex-wrap gap-8 bg-primary/60 px-16 py-4 backdrop-blur-sm transition-all duration-500",
-                    active ? "" : "translate-y-[26rem]",
-                )}
-            >
-                {schools.map((school, i) => (
-                    <HeaderLink onClick={handleClick} key={i} {...school} />
-                ))}
-            </div>
+            <Options schools={schools} handleClick={handleClick} active={active} />
         </header>
     );
 }
