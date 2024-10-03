@@ -4,10 +4,15 @@ import { cn } from "@/lib/utils";
 
 interface SectionContainerInterface {
     classname?: string;
+    id?: string;
 }
-function SectionContainer({ classname, children }: PropsWithChildren<SectionContainerInterface>) {
+function SectionContainer({
+    classname,
+    children,
+    id,
+}: PropsWithChildren<SectionContainerInterface>) {
     return (
-        <section className={cn(classname, "flex h-full w-full flex-col items-center")}>
+        <section id={id} className={cn(classname, "flex h-full w-full flex-col items-center")}>
             {children}
         </section>
     );
