@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -9,13 +9,9 @@ import { cn } from "@/lib/utils";
 import Item from "./item";
 import Options from "./options";
 
-interface HeaderInterface {
-    schools:School[] 
-}
-
-function Header({schools}:HeaderInterface) {
+function Header() {
     const [active, setActive] = React.useState(true);
-        const handleClick = () => {
+    const handleClick = () => {
         setActive(prev => !prev);
     };
 
@@ -50,7 +46,7 @@ function Header({schools}:HeaderInterface) {
                     Instagram
                 </button>
             </div>
-            <Options schools={schools} handleClick={handleClick} active={active} />
+            <Options handleClick={handleClick} active={active} />
         </header>
     );
 }
