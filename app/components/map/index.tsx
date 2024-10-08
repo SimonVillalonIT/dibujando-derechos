@@ -6,12 +6,13 @@ import dynamic from "next/dynamic";
 import { allura } from "@/lib/fonts";
 
 import SectionContainer from "../section-container";
+import Spinner from "../spinner";
 
 function SchoolsMap() {
     const Map = dynamic(
         () => import("./leaflet"), // replace '@components/map' with your component's location
         {
-            loading: () => <p>A map is loading</p>,
+            loading: () => <Spinner />,
             ssr: false, // This line is important. It's what prevents server-side render
         },
     );
@@ -21,7 +22,7 @@ function SchoolsMap() {
                 <h1 className={`${allura.className} mb-12 text-5xl text-foreground`}>
                     Colegios que participan
                 </h1>
-                <div className="h-full min-h-96 w-full flex-1">
+                <div className="flex h-full min-h-96 w-full flex-1 items-center justify-center">
                     <Map />
                 </div>
             </div>
