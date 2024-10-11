@@ -56,13 +56,6 @@ export const SCHOOLS = [
         longitude: -64.16025570614335,
     },
     {
-        id: 9,
-        created_at: "2024-09-26T14:11:08.235597+00:00",
-        name: "Berta B. de Zerega",
-        latitude: -32.175120926600286,
-        longitude: -64.1478890748102,
-    },
-    {
         id: 10,
         created_at: "2024-09-26T14:11:20.902489+00:00",
         name: "Jose M. Zapiola",
@@ -103,5 +96,12 @@ export const SCHOOLS = [
         name: "Gregoria Ignacia Pérez",
         latitude: -32.1808679153784,
         longitude: -64.1040444229537,
+    },
+    {
+        id: 16,
+        created_at: "2024-10-01T12:41:58.12348+00:00",
+        name: "Domingo F. Sarmiento",
+        latitude: -32.179998983430146,
+        longitude: -64.09584098934117,
     },
 ];

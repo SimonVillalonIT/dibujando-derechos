@@ -1,5 +1,5 @@
-import {  Poppins } from "next/font/google";
-import local from "next/font/local"
+import { Poppins } from "next/font/google";
+import local from "next/font/local";
 
 const poppins = Poppins({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -8,6 +8,6 @@ const poppins = Poppins({
     variable: "--poppins",
 });
 
-const allura = local({src: "../public/fonts/Allura-Regular.ttf"}) 
+const allura = local({ src: "../public/fonts/Allura-Regular.ttf" });
 
-export {allura, poppins}
+export { allura, poppins };

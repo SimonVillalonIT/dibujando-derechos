@@ -8,6 +8,7 @@ type Database = {
                     created_at: string;
                     id: number;
                     img_url: string;
+                    name: string | null;
                     school_id: number | null;
                     selected: boolean;
                     votes: number;
@@ -16,6 +17,7 @@ type Database = {
                     created_at?: string;
                     id?: number;
                     img_url?: string;
+                    name?: string | null;
                     school_id?: number | null;
                     selected?: boolean;
                     votes?: number;
@@ -24,6 +26,7 @@ type Database = {
                     created_at?: string;
                     id?: number;
                     img_url?: string;
+                    name?: string | null;
                     school_id?: number | null;
                     selected?: boolean;
                     votes?: number;

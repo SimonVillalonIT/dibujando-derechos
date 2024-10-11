@@ -2,22 +2,31 @@
 
 import React from "react";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 
-import { useSchool } from "@/hooks/useSchool";
-import DrawModal from "@/app/components/school-page/modal";
+import { createClient } from "@/lib/supabase/client";
 import Spinner from "@/app/components/spinner";
+import UnknownModal from "@/app/components/unknown/unknown-modal";
 
-function SchooldId() {
-    const { id } = useParams<{ id: string }>();
+function Unknown() {
+    const [schoolData, setSchoolData] = React.useState<Draw[]>();
+
+    const supabase = createClient();
+    React.useEffect(() => {
+        const fetchImages = async () => {
+            const { data } = await supabase.from("draws").select("*").eq("school_id", 0);
+            if (data) {
+                setSchoolData(data);
+            }
+        };
+        fetchImages();
+    }, [supabase]);
+
     const [drawModal, setDrawModal] = React.useState<number | null>(null);
 
     const handleClose = (e: React.MouseEvent) => {
         e.stopPropagation();
         setDrawModal(null);
     };
-
-    const { schoolData, setSchoolData } = useSchool(id);
 
     return (
         <section className="flex h-full min-h-[80vh] flex-col items-center">
@@ -27,34 +36,27 @@ function SchooldId() {
                 </div>
             ) : (
                 <>
-                    <h1 className="text-6xl">{schoolData.school_name}</h1>
+                    <h1 className="text-6xl">Autores Desconocidos</h1>
                     <div className="grid-gallery w-full">
-                        {schoolData.draws && schoolData.draws[0].id === null ? (
+                        {schoolData && schoolData[0].id === null ? (
                             <h1 className="w-full text-center text-5xl">
                                 Este colegio no tiene dibujos cargados
                             </h1>
                         ) : (
-                            (schoolData.draws as Draw[]).map(draw => (
+                            schoolData.map(draw => (
                                 <div
                                     onClick={() => setDrawModal(draw.id)}
                                     className="grid-gallery__item group relative cursor-pointer border-2 border-transparent hover:border-secondary"
-                                    key={id}
+                                    key={draw.id}
                                 >
-                                    {draw.selected ? (
-                                        <h6 className="absolute -right-4 -top-4 flex h-10 w-10 items-center justify-center rounded-full bg-secondary font-bold text-white">
-                                            {draw.votes}
-                                        </h6>
-                                    ) : null}
-
-                                    <DrawModal
-                                        selected={draw.selected}
-                                        visible={draw.id === drawModal}
-                                        handleClose={handleClose}
+                                    <h6 className="absolute -right-4 -top-4 flex h-10 w-10 items-center justify-center rounded-full bg-secondary font-bold text-white">
+                                        {draw.votes}
+                                    </h6>
+                                    <UnknownModal
                                         draw_id={draw.id}
+                                        handleClose={handleClose}
                                         img_url={draw.img_url}
-                                        school_name={schoolData.school_name}
-                                        autor_name={draw.name ?? "Desconocido"}
-                                        setSchoolData={setSchoolData}
+                                        visible={draw.id === drawModal}
                                     />
                                     <Image
                                         width={500}
@@ -73,4 +75,4 @@ function SchooldId() {
     );
 }
 
-export default SchooldId;
+export default Unknown;

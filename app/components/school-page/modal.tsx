@@ -10,15 +10,19 @@ import Spinner from "../spinner";
 function DrawModal({
     visible,
     img_url,
-    name,
+    school_name,
+    autor_name,
     draw_id,
+    selected,
     handleClose,
     setSchoolData,
 }: {
     visible: boolean;
     img_url: string;
-    name: string;
+    school_name: string;
+    autor_name: string;
     draw_id: number;
+    selected: boolean;
     handleClose: (e: React.MouseEvent) => void;
     setSchoolData: React.Dispatch<React.SetStateAction<SchoolDataType>>;
 }) {
@@ -29,17 +33,15 @@ function DrawModal({
         const data = await handleVote(draw_id);
         if (data) {
             setSchoolData(prev => {
-                if (!prev) return prev; // Handle case where prev is undefined
+                if (!prev) return prev;
 
                 const updatedDraws = prev.draws.map(draw => {
-                    // Check if the draw matches the updated one
                     if (draw.id === data.draw_id) {
-                        return { ...draw, votes: data.updated_votes }; // Update the votes
+                        return { ...draw, votes: data.updated_votes };
                     }
-                    return draw; // Return the original draw if no changes are needed
+                    return draw;
                 });
 
-                // Return the new state object with updated draws
                 return { ...prev, draws: updatedDraws } as SchoolDataType;
             });
         }
@@ -63,15 +65,17 @@ function DrawModal({
                 />
                 <div className="flex flex-col items-center justify-between px-4 py-16">
                     <div>
-                        <h3 className="text-4xl">{name}</h3>
-                        <h5 className="mt-8 text-xl">Nombre de Alumno: Simon Villalon</h5>
+                        <h3 className="text-4xl">{school_name}</h3>
+                        <h5 className="mt-8 text-xl">Nombre del Autor: {autor_name}</h5>
                     </div>
-                    <button
-                        onClick={handleClick}
-                        className="flex h-16 w-32 items-center justify-center bg-secondary font-semibold duration-100 hover:scale-105"
-                    >
-                        {loading ? <Spinner className="size-8" /> : "Votar"}
-                    </button>
+                    {selected ? (
+                        <button
+                            onClick={handleClick}
+                            className="flex h-16 w-32 items-center justify-center bg-secondary font-semibold duration-100 hover:scale-105"
+                        >
+                            {loading ? <Spinner className="size-8" /> : "Votar"}
+                        </button>
+                    ) : null}
                 </div>
                 <Close onClick={handleClose} className="absolute right-4 top-4 size-6 text-black" />
             </div>
