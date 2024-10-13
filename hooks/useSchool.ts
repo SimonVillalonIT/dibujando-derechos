@@ -18,5 +18,5 @@ export function useSchool(id: string) {
         fetchImages();
     }, [id, supabase]);
 
-    return { schoolData, setSchoolData };
+    return { schoolData };
 }

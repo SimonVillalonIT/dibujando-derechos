@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Unknown() {
     return (
@@ -12,9 +13,9 @@ function Unknown() {
                             No encontraste tu dibujo?
                         </p>
                     </div>
-                    <button className="bg-white/20 p-3 text-xl text-white backdrop-blur-xl">
+                    <Link href="/schools/unknown" className="bg-white/20 p-3 text-xl text-white backdrop-blur-xl">
                         Encontra tu dibujo
-                    </button>
+                    </Link>
                 </div>
                 <div className="relative w-3/5">
                     <Image

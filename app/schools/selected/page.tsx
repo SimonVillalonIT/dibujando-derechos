@@ -7,13 +7,13 @@ import DrawCard from "@/app/components/school-page/draw-card";
 import DrawsContainer from "@/app/components/school-page/draws-container";
 import Spinner from "@/app/components/spinner";
 
-function Unknown() {
-    const [schoolData, setSchoolData] = React.useState<Draw[]>();
+function Selected() {
+    const [schoolData, setSchoolData] = React.useState<Draw[] | undefined>(undefined);
 
     const supabase = createClient();
     React.useEffect(() => {
         const fetchImages = async () => {
-            const { data } = await supabase.from("draws").select("*").is("school_id", null);
+            const { data } = await supabase.from("draws").select("*").is("selected", true);
             if (data) {
                 setSchoolData(data);
             }
@@ -22,21 +22,23 @@ function Unknown() {
     }, [supabase]);
 
     return (
-        <section className="flex h-full min-h-[80vh] flex-col items-center">
+        <section className="flex flex-col items-center">
             {!schoolData ? (
                 <div className="flex h-[90vh] w-full items-center justify-center">
                     <Spinner />
                 </div>
             ) : (
                 <>
-                    <h1 className="text-6xl">Autores Desconocidos</h1>
+                    <h1 className="text-6xl">Pre-Seleccionados</h1>
                     <DrawsContainer>
                         {schoolData.length < 1 ? (
                             <h1 className="w-full text-center text-5xl">
                                 Este colegio no tiene dibujos cargados
                             </h1>
                         ) : (
-                            schoolData.map(draw => <DrawCard school_name="Pre-Seleccionados" draw={draw} key={draw.id} />)
+                            schoolData.map(draw => (
+                                <DrawCard school_name="Pre-Seleccionados" key={draw.id} draw={draw} setSchoolData={setSchoolData} />
+                            ))
                         )}
                     </DrawsContainer>
                 </>
@@ -45,4 +47,4 @@ function Unknown() {
     );
 }
 
-export default Unknown;
+export default Selected;
