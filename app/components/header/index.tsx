@@ -6,7 +6,9 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
+import Menu from "../menu";
 import Item from "./item";
+import MobileMenu from "./mobile-menu";
 import Options from "./options";
 
 function Header() {
@@ -18,11 +20,11 @@ function Header() {
     return (
         <header
             className={cn(
-                "grid min-h-24 w-full grid-cols-7 transition-all delay-200 duration-500",
+                "flex min-h-24 w-full justify-between transition-all delay-200 duration-500",
                 active ? "" : "bg-primary/60",
             )}
         >
-            <div className="col-span-2 flex items-center justify-between pl-12">
+            <div className="flex items-center justify-between pl-12">
                 <Link href={"/"}>
                     <Image
                         src="/Logo.png"
@@ -32,24 +34,27 @@ function Header() {
                     />
                 </Link>
             </div>
-            <nav className="col-span-3 flex list-none items-center">
+            <nav className="hidden list-none items-center gap-24 md:flex">
                 <Item href="/" name="Inicio" />
                 <Item onClick={handleClick} name="Escuelas" />
                 <Item href="/info" name="Mas Informacion" />
                 <Item href="/about" name="Sobre nosotros" />
             </nav>
-            <div className="col-span-2 flex items-center justify-end pr-12">
+            <div className="flex items-center justify-end pr-12">
                 <a
                     target="_blank"
                     href="https://www.instagram.com/centrocivicorio3/"
                     className={cn(
-                        "cursor-pointer rounded-3xl border border-black px-4 py-1 text-xl duration-100 hover:border-secondary hover:bg-secondary hover:text-white",
+                        "hidden cursor-pointer rounded-3xl border border-black px-4 py-1 text-xl duration-100 hover:border-secondary hover:bg-secondary hover:text-white md:block",
                     )}
                 >
                     Instagram
                 </a>
+                <Menu onClick={handleClick} />
             </div>
             <Options handleClick={handleClick} active={active} />
+
+            <MobileMenu onClick={handleClick} active={active} />
         </header>
     );
 }

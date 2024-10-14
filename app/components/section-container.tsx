@@ -12,7 +12,7 @@ function SectionContainer({
     id,
 }: PropsWithChildren<SectionContainerInterface>) {
     return (
-        <section id={id} className={cn(classname, "flex h-full w-full flex-col items-center")}>
+        <section id={id} className={cn(classname, "h-full w-full flex-col items-center")}>
             {children}
         </section>
     );

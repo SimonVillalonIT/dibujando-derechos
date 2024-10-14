@@ -30,7 +30,7 @@ function ClientPictures({ draws }: { draws: Draw[] }) {
 
     return (
         <div
-            className={`grid min-h-96 grid-cols-3 gap-16 transition-opacity duration-500 ${
+            className={`grid min-h-96 grid-cols-1 gap-16 transition-opacity duration-500 sm:grid-cols-3 ${
                 isFading ? "opacity-0" : "opacity-100"
             }`}
         >

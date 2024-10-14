@@ -9,7 +9,7 @@ import SectionContainer from "../section-container";
 
 function Hero() {
     return (
-        <SectionContainer>
+        <SectionContainer classname="flex">
             <h1 className={`${allura.className} text-5xl text-foreground`}>Entrada al arte</h1>
             <div className="relative h-[620px]">
                 <Image className="h-full" width={1400} height={1000} src="/Edificio.png" alt="" />
