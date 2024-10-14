@@ -33,18 +33,21 @@ function Header() {
                 </Link>
             </div>
             <nav className="col-span-3 flex list-none items-center">
+                <Item href="/" name="Inicio" />
                 <Item onClick={handleClick} name="Escuelas" />
                 <Item href="/info" name="Mas Informacion" />
                 <Item href="/about" name="Sobre nosotros" />
             </nav>
             <div className="col-span-2 flex items-center justify-end pr-12">
-                <button
+                <a
+                    target="_blank"
+                    href="https://www.instagram.com/centrocivicorio3/"
                     className={cn(
                         "cursor-pointer rounded-3xl border border-black px-4 py-1 text-xl duration-100 hover:border-secondary hover:bg-secondary hover:text-white",
                     )}
                 >
                     Instagram
-                </button>
+                </a>
             </div>
             <Options handleClick={handleClick} active={active} />
         </header>

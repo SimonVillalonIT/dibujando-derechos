@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface ItemInterface {
     name: string;
@@ -7,6 +8,9 @@ interface ItemInterface {
     href?: string;
 }
 function Item({ href, name, onClick }: ItemInterface) {
+    const pathname = usePathname();
+
+    if (pathname === href) return <></>;
     if (href) {
         return (
             <Link
