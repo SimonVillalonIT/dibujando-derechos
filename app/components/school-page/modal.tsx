@@ -60,7 +60,7 @@ function DrawModal({
 
         setLoading(false);
     };
-   return (
+    return (
         <div
             className={cn(
                 "fixed left-0 top-0 z-20 hidden h-screen w-full cursor-default items-center justify-center bg-primary/60 backdrop-blur-md duration-200",

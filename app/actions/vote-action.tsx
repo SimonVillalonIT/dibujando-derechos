@@ -1,6 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers"; // To handle cookies
+
 import { createClient } from "@/lib/supabase/server";
 
 type VoteResponse = { updated_votes: number; draw_id: number } | { error: string };

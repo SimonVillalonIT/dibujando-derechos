@@ -13,7 +13,10 @@ function Unknown() {
                             No encontraste tu dibujo?
                         </p>
                     </div>
-                    <Link href="/schools/unknown" className="bg-white/20 p-3 text-xl text-white backdrop-blur-xl">
+                    <Link
+                        href="/schools/unknown"
+                        className="bg-white/20 p-3 text-xl text-white backdrop-blur-xl"
+                    >
                         Encontra tu dibujo
                     </Link>
                 </div>

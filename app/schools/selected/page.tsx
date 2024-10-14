@@ -37,7 +37,12 @@ function Selected() {
                             </h1>
                         ) : (
                             schoolData.map(draw => (
-                                <DrawCard school_name="Pre-Seleccionados" key={draw.id} draw={draw} setSchoolData={setSchoolData} />
+                                <DrawCard
+                                    school_name="Pre-Seleccionados"
+                                    key={draw.id}
+                                    draw={draw}
+                                    setSchoolData={setSchoolData}
+                                />
                             ))
                         )}
                     </DrawsContainer>

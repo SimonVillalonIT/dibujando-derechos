@@ -36,7 +36,13 @@ function Unknown() {
                                 Este colegio no tiene dibujos cargados
                             </h1>
                         ) : (
-                            schoolData.map(draw => <DrawCard school_name="Pre-Seleccionados" draw={draw} key={draw.id} />)
+                            schoolData.map(draw => (
+                                <DrawCard
+                                    school_name="Pre-Seleccionados"
+                                    draw={draw}
+                                    key={draw.id}
+                                />
+                            ))
                         )}
                     </DrawsContainer>
                 </>

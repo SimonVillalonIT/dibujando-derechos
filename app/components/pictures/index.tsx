@@ -14,16 +14,19 @@ export async function Pictures() {
 
     if (error) return redirect("/error");
 
-        return (
-            <SectionContainer classname="h-screen pb-24 pt-12 bg-background">
-                <h1 className={`${allura.className} mb-5 text-5xl text-foreground`}>
-                    Expositor de obras
-                </h1>
-                <ClientPictures draws={data} />
+    return (
+        <SectionContainer classname="h-screen pb-24 pt-12 bg-background">
+            <h1 className={`${allura.className} mb-5 text-5xl text-foreground`}>
+                Expositor de obras
+            </h1>
+            <ClientPictures draws={data} />
 
-                <Link className="bg-secondary p-4 text-white font-semibold text-center" href="/schools/selected">
-                    Ir a Pre-seleccionados
-                </Link>
-            </SectionContainer>
-        );
-    }
+            <Link
+                className="bg-secondary p-4 text-center font-semibold text-white"
+                href="/schools/selected"
+            >
+                Ir a Pre-seleccionados
+            </Link>
+        </SectionContainer>
+    );
+}
