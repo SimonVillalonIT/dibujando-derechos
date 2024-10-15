@@ -13,14 +13,21 @@ const JudgeRight = ({
     children,
     img,
 }: React.PropsWithChildren<{ name: string; img: string }>) => (
-    <div className="mt-12 flex justify-between px-20">
+    <div className="mt-12 flex flex-col justify-between px-8 md:px-20 lg:flex-row">
         <div className="mb-4 flex flex-col justify-center">
             <li className="text-xl font-semibold">{name}</li>
-            <p className="max-w-[60ch] text-lg">{children}</p>
+            <p className="text-lg lg:max-w-[60ch]">{children}</p>
         </div>
-        <div className="flex">
-            <span className="mr-8 h-full w-1 bg-black/30"></span>
-            <Image width={300} height={300} src={img} alt={`Juez ${name}`} />
+        <div className="flex items-center justify-center">
+            <span className="mr-8 hidden h-full w-1 bg-black/60 lg:block"></span>{" "}
+            {/* Set a fixed height */}
+            <Image
+                className="min-h-[300px] min-w-[300px]"
+                width={300}
+                height={300}
+                src={img}
+                alt={`Juez ${name}`}
+            />
         </div>
     </div>
 );
@@ -30,37 +37,44 @@ const JudgeLeft = ({
     children,
     img,
 }: React.PropsWithChildren<{ name: string; img: string }>) => (
-    <div className="mt-12 flex justify-between px-20">
-        <div className="mb-4 flex">
-            <Image width={300} height={300} src={img} alt={`Juez ${name}`} />
-            <span className="ml-8 h-full w-1 bg-black/30"></span>
+    <div className="mt-12 flex flex-col-reverse justify-between px-8 md:px-20 lg:flex-row">
+        <div className="mb-4 flex min-h-[300px] items-center justify-center">
+            {" "}
+            {/* Ensure a minimum height for layout stability */}
+            <Image
+                width={300}
+                height={300}
+                src={img}
+                alt={`Juez ${name}`}
+                className="min-h-[300px] min-w-[300px] object-cover" // Ensures the image maintains its aspect ratio
+            />
+            <span className="ml-8 h-full w-1 bg-black/60"></span> {/* Line takes full height */}
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="mt-4 flex flex-col justify-center md:mt-0 lg:ml-8">
             <li className="text-xl font-semibold">{name}</li>
-            <p className="max-w-[60ch] text-lg">{children}</p>
+            <p className="w-full text-lg lg:max-w-[60ch]">{children}</p>
         </div>
     </div>
 );
-
 function AboutPage() {
     return (
         <main>
             <section className="mt-8 h-full w-full">
                 <div className="flex w-full flex-col items-center">
                     <h1 className="mb-4 text-center text-4xl font-bold">¿Quienes somos?</h1>
-                    <p className="mt-8 max-w-prose text-center text-2xl">
+                    <p className="mt-8 max-w-prose px-8 text-center text-2xl lg:px-0">
                         El concurso es el fruto de una colaboración conjunta entre la{" "}
                         <strong>
                             Secretaría de Niñez de la Provincia (UDER Río Tercero) y la Mesa de
-                            Niñez, Adolescencia y Familia del Centro Cívico de Río Tercero
+                            Niñez, Adolescencia y Familia del Centro Cívico de Río Tercero.
                         </strong>{" "}
-                        . Juntos, trabajamos para promover los derechos y el bienestar de niños,
-                        niñas y adolescentes en la región.
+                        Juntos, trabajamos para promover los derechos y el bienestar de niños, niñas
+                        y adolescentes en la región.
                     </p>
                 </div>
                 <div className="mt-8 h-full">
                     <Title title="Organizadores y Equipo" />
-                    <div className="px-32">
+                    <div className="px-8 lg:px-32">
                         <p>
                             Este comité está integrado por un equipo multidisciplinario, entre los
                             cuales se destacan:
@@ -94,7 +108,7 @@ function AboutPage() {
             </section>
             <section className="mt-8 h-full w-full">
                 <Title title="Jurado" />
-                <div className="px-40">
+                <div className="px-8 lg:px-40">
                     <p className="text-xl">
                         El panel de jueces está integrado por personalidades reconocidas en el
                         ámbito legal, artístico y educativo:
@@ -119,7 +133,7 @@ function AboutPage() {
                         SENAF del Ministerio de Desarrollo Humano.
                     </JudgeLeft>
                     <JudgeRight img="/jueces/Guzman.png" name="Silvia Guzmán">
-                        Artista local autodidacta, especializada en paisajismo y realismo al óleo
+                        Artista local autodidacta, especializada en paisajilgo y realismo al óleo
                         sobre madera.
                     </JudgeRight>
                 </div>

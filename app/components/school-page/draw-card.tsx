@@ -14,11 +14,10 @@ function DrawCard({
 }) {
     const [drawModal, setDrawModal] = React.useState<number | null>(null);
 
-    const handleClose = (e: React.MouseEvent) => {
+    const handleClose = (e: React.MouseEvent<HTMLOrSVGElement>) => {
         e.stopPropagation();
         setDrawModal(null);
     };
-    console.log(draw);
     return (
         <div
             onClick={() => setDrawModal(draw.id)}

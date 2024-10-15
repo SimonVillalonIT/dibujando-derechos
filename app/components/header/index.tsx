@@ -13,15 +13,16 @@ import Options from "./options";
 
 function Header() {
     const [active, setActive] = React.useState(true);
-    const handleClick = () => {
+    const handleClick = (event: React.MouseEvent<HTMLOrSVGElement>) => {
+        event.stopPropagation();
         setActive(prev => !prev);
     };
 
     return (
         <header
             className={cn(
-                "flex min-h-24 w-full justify-between transition-all delay-200 duration-500",
-                active ? "" : "bg-primary/60",
+                "flex min-h-24 w-full justify-between overflow-hidden transition-all delay-200 duration-500",
+                active ? "" : "md:bg-primary/60",
             )}
         >
             <div className="flex items-center justify-between pl-12">
@@ -51,10 +52,10 @@ function Header() {
                     Instagram
                 </a>
                 <Menu onClick={handleClick} />
-            </div>
-            <Options handleClick={handleClick} active={active} />
+                <Options handleClick={handleClick} active={active} />
 
-            <MobileMenu onClick={handleClick} active={active} />
+                <MobileMenu onClick={handleClick} active={active} />
+            </div>
         </header>
     );
 }

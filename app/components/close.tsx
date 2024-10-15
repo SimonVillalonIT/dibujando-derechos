@@ -5,7 +5,7 @@ function Close({
     className,
 }: {
     className: string;
-    onClick: (e: React.MouseEvent) => void;
+    onClick: (e: React.MouseEvent<HTMLOrSVGElement>) => void;
 }) {
     return (
         <svg

@@ -4,7 +4,8 @@ import { usePathname } from "next/navigation";
 
 interface ItemInterface {
     name: string;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLLIElement>) => void;
+
     href?: string;
 }
 function Item({ href, name, onClick }: ItemInterface) {
@@ -15,8 +16,8 @@ function Item({ href, name, onClick }: ItemInterface) {
         return (
             <Link
                 href={href}
-                onClick={onClick}
-                className="flex w-full cursor-pointer justify-center hover:text-secondary"
+                style={{ textShadow: "1px 1px 2px white" }}
+                className="cursor-pointer hover:text-secondary"
             >
                 {name}
             </Link>
@@ -24,10 +25,7 @@ function Item({ href, name, onClick }: ItemInterface) {
     }
 
     return (
-        <li
-            onClick={onClick}
-            className="flex w-full cursor-pointer justify-center hover:text-secondary"
-        >
+        <li role="button" onClick={onClick} className="cursor-pointer hover:text-secondary">
             {name}
         </li>
     );

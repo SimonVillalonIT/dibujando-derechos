@@ -23,7 +23,7 @@ function DrawModal({
     autor_name: string;
     draw_id: number;
     selected: boolean;
-    handleClose: (e: React.MouseEvent) => void;
+    handleClose: (e: React.MouseEvent<HTMLOrSVGElement>) => void;
     setSchoolData?: React.Dispatch<React.SetStateAction<Draw[] | undefined>>;
 }) {
     const [loading, setLoading] = React.useState(false);
@@ -67,11 +67,17 @@ function DrawModal({
                 visible && "flex animate-fadeIn",
             )}
         >
-            <div className="relative grid h-4/5 grid-cols-3 bg-background shadow-lg">
-                <div className="relative col-span-2">
-                    <Image fill={true} src={img_url} alt="Dibujo" />
+            <div className="relative flex h-full w-full flex-col bg-background md:h-4/5 md:w-3/4 md:flex-row md:shadow-lg">
+                <div className="flex h-2/3 items-center justify-center object-cover md:w-2/3">
+                    <Image
+                        className="object-cover"
+                        width={660}
+                        height={660}
+                        src={img_url}
+                        alt="Dibujo"
+                    />
                 </div>
-                <div className="flex flex-col items-center justify-between px-4 py-16">
+                <div className="flex flex-1 flex-col items-center justify-between px-4 py-16">
                     <div>
                         <h3 className="text-center text-4xl">{school_name}</h3>
                         <h5 className="mt-8 text-xl">Nombre del Autor: {autor_name}</h5>

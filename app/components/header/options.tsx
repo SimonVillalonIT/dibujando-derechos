@@ -7,7 +7,7 @@ import HeaderLink from "./link";
 
 interface OptionsInterface {
     active: boolean;
-    handleClick: () => void;
+    handleClick: (e: React.MouseEvent<HTMLElement>) => void;
 }
 function Options({ active, handleClick }: OptionsInterface) {
     return (

@@ -29,7 +29,7 @@ function Selected() {
                 </div>
             ) : (
                 <>
-                    <h1 className="text-6xl">Pre-Seleccionados</h1>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl">Pre-Seleccionados</h1>
                     <DrawsContainer>
                         {schoolData.length < 1 ? (
                             <h1 className="w-full text-center text-5xl">

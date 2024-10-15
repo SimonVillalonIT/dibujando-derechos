@@ -9,9 +9,12 @@ function Footer() {
                 <h6>© Copyright {new Date().getFullYear()}</h6>
                 <p>Centro Cívico Río Tercero - San Martin 255 - Rio Tercero</p>
             </div>
-            <button className="border border-black p-2 duration-200 hover:bg-black hover:text-white">
+            <a
+                href="mailto:centrocivico2024@gmail.com"
+                className="border border-black p-2 duration-200 hover:bg-black hover:text-white"
+            >
                 Contactate con Nosotros
-            </button>
+            </a>
         </footer>
     );
 }

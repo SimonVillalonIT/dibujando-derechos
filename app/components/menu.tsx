@@ -1,6 +1,6 @@
 import React from "react";
 
-const Menu = ({ onClick }: { onClick: () => void }) => (
+const Menu = ({ onClick }: { onClick: (e: React.MouseEvent<HTMLOrSVGElement>) => void }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
