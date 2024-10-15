@@ -29,7 +29,7 @@ function Unknown() {
                 </div>
             ) : (
                 <>
-                    <h1 className="text-6xl">Autores Desconocidos</h1>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl">Autores Desconocidos</h1>
                     <DrawsContainer>
                         {schoolData.length < 1 ? (
                             <h1 className="w-full text-center text-5xl">

@@ -7,16 +7,16 @@ import Trophy from "../components/trophy";
 
 const Title = ({ children, Icon }: React.PropsWithChildren<{ Icon: React.ElementType }>) => (
     <div className="mb-4 flex flex-col">
-        <div className="ml-48 mt-8 flex items-center">
+        <div className="mt-8 flex items-center px-4 md:ml-48 md:px-0">
             <Icon />
-            <h4 className="ml-4 text-3xl font-semibold">{children}</h4>
+            <h4 className="ml-4 text-2xl font-semibold md:text-3xl">{children}</h4>
         </div>
         <span className="h-1 w-1/5 bg-gradient-to-r from-black/30 to-background"></span>
     </div>
 );
 
 const Paragraph = ({ children }: React.PropsWithChildren) => (
-    <p className="px-40 text-lg">{children}</p>
+    <p className="px-8 text-lg md:px-40">{children}</p>
 );
 function InfoPage() {
     return (

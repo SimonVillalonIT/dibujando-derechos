@@ -17,7 +17,7 @@ function SchoolsMap() {
         },
     );
     return (
-        <SectionContainer id="map" classname="bg-background py-10 relative">
+        <SectionContainer id="map" classname="bg-background py-10 relative hidden md:flex">
             <div className="flex h-full w-full flex-col items-center">
                 <h1 className={`${allura.className} mb-12 text-5xl text-foreground`}>
                     Colegios que participan

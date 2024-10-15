@@ -1,7 +1,13 @@
 import React from "react";
 import Link from "next/link";
 
-function HeaderLink({ school, onClick }: { school: School; onClick: () => void }) {
+function HeaderLink({
+    school,
+    onClick,
+}: {
+    school: School;
+    onClick: (e: React.MouseEvent<HTMLElement>) => void;
+}) {
     return (
         <Link
             onClick={onClick}
