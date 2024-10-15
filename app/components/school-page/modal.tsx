@@ -35,7 +35,7 @@ function DrawModal({
         // Check if the user has already voted using localStorage
         const hasVoted = localStorage.getItem(`voted_${draw_id}`);
         if (hasVoted) {
-            setError("You have already voted for this draw.");
+            setError("Ya has votado por este dibujo!");
             return;
         }
 
@@ -68,14 +68,8 @@ function DrawModal({
             )}
         >
             <div className="relative flex h-full w-full flex-col bg-background md:h-4/5 md:w-3/4 md:flex-row md:shadow-lg">
-                <div className="flex h-2/3 items-center justify-center object-cover md:w-2/3">
-                    <Image
-                        className="object-cover"
-                        width={660}
-                        height={660}
-                        src={img_url}
-                        alt="Dibujo"
-                    />
+                <div className="relative flex h-2/3 items-center justify-center object-cover md:w-2/3">
+                    <Image className="object-cover" fill={true} src={img_url} alt="Dibujo" />
                 </div>
                 <div className="flex flex-1 flex-col items-center justify-between px-4 py-16">
                     <div>

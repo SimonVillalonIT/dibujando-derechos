@@ -13,7 +13,11 @@ function Unknown() {
     const supabase = createClient();
     React.useEffect(() => {
         const fetchImages = async () => {
-            const { data } = await supabase.from("draws").select("*").is("school_id", null);
+            const { data } = await supabase
+                .from("draws")
+                .select("*")
+                .is("school_id", null)
+                .is("selected", false);
             if (data) {
                 setSchoolData(data);
             }
@@ -37,11 +41,7 @@ function Unknown() {
                             </h1>
                         ) : (
                             schoolData.map(draw => (
-                                <DrawCard
-                                    school_name="Pre-Seleccionados"
-                                    draw={draw}
-                                    key={draw.id}
-                                />
+                                <DrawCard school_name="Desconocidos" draw={draw} key={draw.id} />
                             ))
                         )}
                     </DrawsContainer>

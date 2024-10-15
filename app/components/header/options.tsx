@@ -13,8 +13,8 @@ function Options({ active, handleClick }: OptionsInterface) {
     return (
         <div
             className={cn(
-                "absolute z-10 hidden w-full flex-wrap gap-8 bg-primary/60 px-16 py-4 backdrop-blur-sm transition-all duration-500 md:flex",
-                active ? "-translate-y-[40rem]" : "translate-y-[6rem]",
+                "absolute left-0 z-50 hidden w-full flex-wrap justify-around gap-8 bg-primary/60 py-4 backdrop-blur-sm transition-all duration-500 md:flex",
+                active ? "-translate-y-[40rem]" : "translate-y-[7rem]",
             )}
         >
             {SCHOOLS.map(school => (

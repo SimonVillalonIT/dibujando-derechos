@@ -30,7 +30,7 @@ function DrawCard({
                 </h6>
             ) : null}
             <DrawModal
-                autor_name={draw.name ?? "Desconocidos"}
+                autor_name={"Desconocido"}
                 draw_id={draw.id}
                 img_url={draw.img_url}
                 handleClose={handleClose}
