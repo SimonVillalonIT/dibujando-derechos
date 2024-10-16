@@ -30,7 +30,7 @@ function DrawCard({
                 </h6>
             ) : null}
             <DrawModal
-                autor_name={"Desconocido"}
+                autor_name={(draw.selected || draw.school_id !== null) && draw.name ? draw.name : "Desconocido"}
                 draw_id={draw.id}
                 img_url={draw.img_url}
                 handleClose={handleClose}

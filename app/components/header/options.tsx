@@ -14,7 +14,7 @@ function Options({ active, handleClick }: OptionsInterface) {
         <div
             className={cn(
                 "absolute left-0 z-50 hidden w-full flex-wrap justify-around gap-8 bg-primary/60 py-4 backdrop-blur-sm transition-all duration-500 md:flex",
-                active ? "-translate-y-[40rem]" : "translate-y-[7rem]",
+                active ? "-translate-y-[40rem]" : "translate-y-[9rem]",
             )}
         >
             {SCHOOLS.map(school => (
