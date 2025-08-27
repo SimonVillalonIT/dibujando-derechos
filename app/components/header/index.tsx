@@ -10,6 +10,7 @@ import Menu from "../menu";
 import Item from "./item";
 import MobileMenu from "./mobile-menu";
 import Options from "./options";
+import EditionSelector from "../edition-select";
 
 function Header() {
     const [active, setActive] = React.useState(true);
@@ -38,6 +39,7 @@ function Header() {
             <nav className="hidden list-none items-center gap-24 md:flex">
                 <Item href="/" name="Inicio" />
                 <Item onClick={handleClick} name="Escuelas" />
+                <EditionSelector />
                 <Item href="/info" name="Mas Informacion" />
                 <Item href="/about" name="Sobre nosotros" />
             </nav>

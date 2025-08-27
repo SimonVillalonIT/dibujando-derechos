@@ -6,14 +6,16 @@ import { createClient } from "@/lib/supabase/client";
 import DrawCard from "@/app/components/school-page/draw-card";
 import DrawsContainer from "@/app/components/school-page/draws-container";
 import Spinner from "@/app/components/spinner";
+import { useEditionStore } from "@/stores/edition-store";
 
 function Selected() {
     const [schoolData, setSchoolData] = React.useState<Draw[] | undefined>(undefined);
+    const {currentEdition} = useEditionStore()
 
     const supabase = createClient();
     React.useEffect(() => {
         const fetchImages = async () => {
-            const { data } = await supabase.from("draws").select("*").is("selected", true);
+            const { data } = await supabase.from("draws").select("*").is("selected", true).eq("edition", currentEdition);
             if (data) {
                 setSchoolData(data);
             }
